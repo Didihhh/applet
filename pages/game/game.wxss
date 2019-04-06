@@ -1,0 +1,18 @@
+/* pages/game/game.wxss */
+.title{
+  text-align:center;
+  margin:160rpx 0rpx;
+}
+.result{
+  background-color:#8b572a;
+  padding:30rpx;
+  width:80%;
+  border-radius:20rpx;
+  text-align: center;
+  margin:200rpx auto;
+}
+.push_btn{
+  width:45px;
+  height:45px;
+  margin:200rpx auto;
+}

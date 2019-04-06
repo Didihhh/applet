@@ -1,0 +1,14 @@
+<!--pages/game/game.wxml-->
+<view class="box">
+  <view class='title'>
+    <text>一秒钟有多长？
+    你能精确地按出一秒钟吗？
+    </text>
+  </view>
+  <view class="result">
+    <text>{{result}}</text>
+  </view>
+  <view class="push_btn" id="push_btn" catchtouchstart="push_start" catchtouchend="push_end">
+    <icon type="circle" size="45" color="orange"/>
+  </view>
+</view>

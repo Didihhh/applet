@@ -1,0 +1,27 @@
+<!-- 首页 -->
+<view class="index">
+  <view class="banner">
+    <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
+      <block wx:for="{{movies}}" wx:for-index="index" wx:key>  
+        <swiper-item>
+          <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>  
+        </swiper-item>  
+      </block>  
+    </swiper> 
+  </view>
+  <!-- <dl class="menu">
+      <dt bindtap="practice"><navigator url="/pages/practice/practice">练习</navigator></dt>
+      <dt bindtap="note"><navigator url="/pages/note/note">笔记本</navigator></dt>
+      <dt bindtap="game"><navigator url="/pages/game/game">小游戏</navigator></dt>
+  </dl>
+  <view class="container"></view>
+  <navigator url="/pages/interest/interest">题库</navigator> -->
+  <view class='nav-list margin-top-xl'>
+  <navigator open-type="navigate" hover-class='none' url="../{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+    <view class="nav-title">{{item.title}}</view>
+    <view class="nav-name">{{item.name}}</view>
+    <view class='icon-{{item.icon}}'></view>
+  </navigator>
+</view>
+
+</view>

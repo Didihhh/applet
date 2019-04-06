@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/interest/interest",
+    "pages/practice/practice",
+    "pages/note/note",
+    "pages/game/game",
+    "pages/user/user",
+    "pages/c/c"
+
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "题库",
+    "backgroundTextStyle": "light"
+  
+  },
+  "tabBar": {
+    "color": "#bcc1cc",
+    "backgroundColor": "#eeeeee",
+    "borderStyle": "white",
+    "selectedColor": "#338ffc",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icon/icon-me.png",
+        "selectedIconPath": "images/icon/icon-me-cur.png"
+      },
+      {
+        "pagePath": "pages/interest/interest",
+        "text": "错题集",
+        "iconPath": "images/icon/icon-book.png",
+        "selectedIconPath": "images/icon/icon-book-cur.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/icon/icon-me.png",
+        "selectedIconPath": "images/icon/icon-me-cur.png"
+      }
+    ]
+  }
+}

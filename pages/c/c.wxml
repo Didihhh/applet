@@ -1,0 +1,14 @@
+<view class='list_box' wx:for='{{list}}' wx:key='this'>
+  <view>
+    {{item.amount}}.{{item.problem}}</view>
+  <view class=' list_item_box margin-top'>
+    <checkbox class='list_item_sname'>A：{{item.choice1}}</checkbox>
+    <checkbox class='list_item_sname'>B：{{item.choice2}}</checkbox>
+    <checkbox class=' list_item_sname'>C：{{item.choice3}}</checkbox>
+    <checkbox class=' list_item_sname'>D：{{item.choice4}}</checkbox>
+  </view>
+  <view class="view margin-top-xl">
+    <button class="cu-btn round line-orange button-hover">上一题</button>
+    <button bindtap="button" class="cu-btn round line-orange button-hover" wx:if="had==true">下一题</button>
+  </view>
+</view>

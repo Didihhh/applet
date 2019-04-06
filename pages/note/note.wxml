@@ -1,0 +1,8 @@
+<!--pages/note/note.wxml-->
+<view>
+<text>笔记本</text>
+<image src="../images/add.png" class="add" bindtap="add-note"/>
+</view>
+<view>
+
+</view>
