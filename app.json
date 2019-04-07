@@ -2,19 +2,17 @@
   "pages": [
     "pages/index/index",
     "pages/interest/interest",
+    "pages/user/user",
     "pages/practice/practice",
     "pages/note/note",
     "pages/game/game",
-    "pages/user/user",
     "pages/c/c"
-
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "题库",
     "backgroundTextStyle": "light"
-  
   },
   "tabBar": {
     "color": "#bcc1cc",

@@ -1,106 +1,94 @@
+//app.js
 App({
-
-  /**
-   * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
-   */
-  onLaunch: function () {
-    require('./sdk-v1.16.0')
+	
+  onLaunch: function() {
+    require('./sdk')
     wx.BaaS.init('fdbf1d21e6f912955532')
+    wx.getSystemInfo({
+      success: e => {
+        this.globalData.StatusBar = e.statusBarHeight;
+        let custom = wx.getMenuButtonBoundingClientRect();
+        this.globalData.Custom = custom;  
+        this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
+      }
+    })
   },
-
-  getUserInfo: function (cb) {
-    var that = this;
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
-      //调用登录接口  
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo;
-              typeof cb == "function" && cb(that.globalData.userInfo)
-            }
-          })
-        }
-      });
-    }
-  }, 
-
-  /**
-   * 当小程序启动，或从后台进入前台显示，会触发 onShow
-   */
-  onShow: function (options) {
-    
-  },
-
-  /**
-   * 当小程序从前台进入后台，会触发 onHide
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息
-   */
-  onError: function (msg) {
-    
-  },
-  /**
-   * 微信用户登录
-   */
-  Login: function (e, cb) {
-    let that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
-      wx.login({
-        success: function (response) {
-          var code = response.code
-
-          wx.getSetting({
-            success: function (res) {
-              if (res.authSetting['scope.userInfo']) {
-                // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-                //首次进入防止网络问题出现页面一直无法显示(添加loading动画)           
-                wx.showLoading({
-                  title: '登录中',
-                })
-
-                wx.request({
-                  url: that.globalData.url + "/ApiLogin",
-                  method: "POST",
-                  data: {
-                    code: code,
-                    iv: e.detail.iv,
-                    encryptedData: e.detail.encryptedData
-                  },
-                  success: function (res) {
-
-                    //请求完成 隐藏loading动画
-                    wx.hideLoading()
-
-                    // 本地存储
-                    wx.setStorage({
-                      key: 'userInfo',
-                      data: res.data,
-                    })
-                    that.globalData.userInfo = res.data;
-                    typeof cb == "function" && cb(that.globalData.userInfo)
-
-                  }
-                })
-              }
-            }
-          })
-        }
-      })
-    }
-  },
-
   globalData: {
-    user: false,
-    userInfo: null
+    ColorList: [{
+        title: '嫣红',
+        name: 'red',
+        color: '#e54d42'
+      },
+      {
+        title: '桔橙',
+        name: 'orange',
+        color: '#f37b1d'
+      },
+      {
+        title: '明黄',
+        name: 'yellow',
+        color: '#fbbd08'
+      },
+      {
+        title: '橄榄',
+        name: 'olive',
+        color: '#8dc63f'
+      },
+      {
+        title: '森绿',
+        name: 'green',
+        color: '#39b54a'
+      },
+      {
+        title: '天青',
+        name: 'cyan',
+        color: '#1cbbb4'
+      },
+      {
+        title: '海蓝',
+        name: 'blue',
+        color: '#0081ff'
+      },
+      {
+        title: '姹紫',
+        name: 'purple',
+        color: '#6739b6'
+      },
+      {
+        title: '木槿',
+        name: 'mauve',
+        color: '#9c26b0'
+      },
+      {
+        title: '桃粉',
+        name: 'pink',
+        color: '#e03997'
+      },
+      {
+        title: '棕褐',
+        name: 'brown',
+        color: '#a5673f'
+      },
+      {
+        title: '玄灰',
+        name: 'grey',
+        color: '#8799a3'
+      },
+      {
+        title: '草灰',
+        name: 'gray',
+        color: '#aaaaaa'
+      },
+      {
+        title: '墨黑',
+        name: 'black',
+        color: '#333333'
+      },
+      {
+        title: '雅白',
+        name: 'white',
+        color: '#ffffff'
+      },
+    ]
   }
 })
